@@ -8,14 +8,15 @@ $name = mysqli_real_escape_string($conn, $_POST['activityName']);
 $date = mysqli_real_escape_string($conn, $_POST['activityDate']);
 $time = mysqli_real_escape_string($conn, $_POST['activityTime']);
 $location = mysqli_real_escape_string($conn, $_POST['activityLocation']);
+$ootd = mysqli_real_escape_string($conn, $_POST['ootd']);
 
 // Validate and sanitize input data here
 
 // Insert data into the database using prepared statement
-$sql = "INSERT INTO life (title, name, date, time, location) VALUES (?, ?, ?, ?, ?)";
+$sql = "INSERT INTO activities (title, name, date, time, location, ootd) VALUES (?, ?, ?, ?, ?, ?)";
 $stmt = mysqli_prepare($conn, $sql);
 
-mysqli_stmt_bind_param($stmt, "sssss", $title, $name, $date, $time, $location);
+mysqli_stmt_bind_param($stmt, "ssssss", $title, $name, $date, $time, $location, $ootd);
 
 if (mysqli_stmt_execute($stmt)) {
     // Provide user feedback
