@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/life.css">
+    <link rel="stylesheet" href="css/activity.css">
+</head>
+<body>
+
+    <!-- Life Activities Manager Form -->
+    <form id="activityForm" action="dataphp/lifeprocess.php" method="post">
+        <label for="activityTitle">Title:</label>
+        <input type="text" id="activityTitle" name="activityTitle" required>
+
+        <label for="activityName">Name:</label>
+        <input type="text" id="activityName" name="activityName" required>
+
+        <label for="activityDate">Date:</label>
+        <input type="date" id="activityDate" name="activityDate" required>
+
+        <label for="activityTime">Time:</label>
+        <input type="time" id="activityTime" name="activityTime" required>
+
+        <label for="activityLocation">Location:</label>
+        <input type="text" id="activityLocation" name="activityLocation" required>
+
+        <label for="ootd">Outfit of the Day:</label>
+        <input type="text" id="ootd" name="ootd" required>
+
+        <button type="submit">Add Activity</button>
+    </form>
+
+    <!-- Display Area for Activities -->
+    <!-- <div id="activityEntries" class="diary-entry"></div> -->
+
+    <!-- Activity Management Section -->
+
+    <form method="post" action="dataphp/manageprocess.php">
+        <label for="activityStatus">Set Activity Status:</label>
+        <select id="activityStatus" name="activityStatus" onchange="handleStatusChange()">
+            <option value="Cancel">Cancel</option>
+            <option value="Done">Done</option>
+            <option value="Remarks">Remarks</option>
+        </select>
+
+        <div id="remarksSection" style="display: none;">
+            <label for="remarks">Remarks:</label>
+            <textarea id="remarks" name="remarks"></textarea>
+        </div>
+
+        <button type="submit">Set Status</button>
+    </form>
+
+    <!-- Display Area for Activities -->
+    <!-- <div id="activityEntriesManage" class="diary-entry"></div> -->
+
+    <script>
+        function handleStatusChange() {
+            var selectedStatus = document.getElementById("activityStatus").value;
+            var remarksSection = document.getElementById("remarksSection");
+
+            if (selectedStatus === "Remarks") {
+                remarksSection.style.display = "block";
+            } else {
+                remarksSection.style.display = "none";
+            }
+        }
+    </script>
+
+    <br><br>
+    <br><br>
+    <a href="dataphp/users_home.php">Back to Home</a>
+
+</body>
+</html>
