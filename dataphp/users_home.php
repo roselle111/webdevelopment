@@ -38,7 +38,6 @@ include_once('../includes/userSessions.php');
     <div class="navbar">
         <!-- Links for managing life activities -->
         <a href="../life.html">Add Activity</a>
-        <a href="../myactivities.html">My Activities</a>
         <a href="logout.php" class="right">Logout</a>
     </div>
     <div class="content">
