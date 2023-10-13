@@ -28,15 +28,6 @@
         <label for="ootd">Outfit of the Day:</label>
         <input type="text" id="ootd" name="ootd" required>
 
-        <button type="submit">Add Activity</button>
-    </form>
-
-    <!-- Display Area for Activities -->
-    <!-- <div id="activityEntries" class="diary-entry"></div> -->
-
-    <!-- Activity Management Section -->
-
-    <form method="post" action="dataphp/manageprocess.php">
         <label for="activityStatus">Set Activity Status:</label>
         <select id="activityStatus" name="activityStatus" onchange="handleStatusChange()">
             <option value="Cancel">Cancel</option>
@@ -49,11 +40,9 @@
             <textarea id="remarks" name="remarks"></textarea>
         </div>
 
-        <button type="submit">Set Status</button>
+        <button type="submit">Save</button>
+        <button type="submit">Edit</button>
     </form>
-
-    <!-- Display Area for Activities -->
-    <!-- <div id="activityEntriesManage" class="diary-entry"></div> -->
 
     <script>
         function handleStatusChange() {
