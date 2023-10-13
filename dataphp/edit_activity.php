@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Activities</title>
-<style>
+    <title>Edit Activity</title>
+    <style>
 body,
 h1,
 h2,
@@ -164,7 +165,6 @@ button:hover {
 }
 
     </style>
-
 </head>
 
 <body>
@@ -181,7 +181,8 @@ button:hover {
         <?php
         include_once("../includes/dbutil.php");
 
-        function displayActivities() {
+        function displayActivities()
+        {
             $conn = getConnection();
 
             $sql = "SELECT * FROM activities";
@@ -253,7 +254,7 @@ button:hover {
                 <label for="editActivityOotd">Outfit of the Day:</label>
                 <input type="text" id="editActivityOotd" name="editActivityOotd" required>
                 <label for="editActivityStatus">Status:</label>
-                <select id="editActivityStatus" name="editActivityStatus">
+                <select id="editActivityStatus" name="editActivityStatus" onchange="handleStatusChange()">
                     <option value="Cancel">Cancel</option>
                     <option value="Done">Done</option>
                     <option value="Remarks">Remarks</option>
@@ -265,13 +266,13 @@ button:hover {
                 <input type="hidden" id="editActivityCreatedAt" name="editActivityCreatedAt" value="">
 
                 <button type="submit">Save Changes</button>
+                <button type="button" onclick="closeEditForm()">Close</button>
             </form>
         </div>
-
-        <br>
     </div>
-<script>
-    function editActivity(activityId, title, name, date, time, location, ootd, status, remarks, created_at) {
+
+    <script>
+        function editActivity(activityId, title, name, date, time, location, ootd, status, remarks, created_at) {
             // Populate the edit form with activity details
             document.getElementById("editActivityId").value = activityId;
             document.getElementById("editActivityTitle").value = title;
@@ -287,8 +288,28 @@ button:hover {
             // Show the edit form and hide the table
             document.getElementById("editFormContainer").style.display = "block";
             document.getElementById("activityTable").style.display = "none";
+
+            // Handle initial status change for Remarks
+            handleStatusChange();
         }
-</script>
+
+        function handleStatusChange() {
+            var selectedStatus = document.getElementById("editActivityStatus").value;
+            var editRemarksSection = document.getElementById("editRemarksSection");
+
+            if (selectedStatus === "Remarks") {
+                editRemarksSection.style.display = "block";
+            } else {
+                editRemarksSection.style.display = "none";
+            }
+        }
+
+        function closeEditForm() {
+        // Hide the edit form and show the table
+        document.getElementById("editFormContainer").style.display = "none";
+        document.getElementById("activityTable").style.display = "block";
+    }
+    </script>
 </body>
 
 </html>
