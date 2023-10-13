@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 12, 2023 at 06:58 AM
+-- Generation Time: Oct 12, 2023 at 01:44 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -29,49 +29,47 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `activities` (
   `id` int(11) NOT NULL,
-  `status` varchar(255) NOT NULL,
-  `remarks` text DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `title` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `date` date NOT NULL,
+  `time` time NOT NULL,
+  `location` varchar(255) NOT NULL,
+  `ootd` varchar(255) DEFAULT NULL,
+  `status` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `activities`
 --
 
-INSERT INTO `activities` (`id`, `status`, `remarks`, `created_at`) VALUES
-(1, 'Remarks', 'hgjngfhn', '2023-10-11 11:52:20'),
-(2, 'Remarks', 'werdf', '2023-10-11 11:53:03'),
-(19, 'Remarks', 'fvbhfgv', '2023-10-12 03:12:38');
+INSERT INTO `activities` (`id`, `title`, `name`, `date`, `time`, `location`, `ootd`, `status`) VALUES
+(151, 'Hiking', 'Paul Henry Elizalde', '2023-10-13', '18:44:00', 'Hometown', 'Athletic tops', NULL),
+(152, 'Swimming', 'Paul Henry Elizalde', '2023-10-09', '18:45:00', 'Singapore', 'Bodysuit', NULL),
+(159, 'Swimming', 'Ruth Vegas', '2023-10-16', '19:22:00', 'Hometown', 'Bodysuit', NULL),
+(160, 'Hiking', 'Jacob Hayes', '2023-10-20', '19:29:00', 'Hometown', 'Athletic tops', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `life`
+-- Table structure for table `manage`
 --
 
-CREATE TABLE `life` (
+CREATE TABLE `manage` (
   `id` int(11) NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `date` date NOT NULL,
-  `time` time NOT NULL,
-  `location` varchar(255) NOT NULL
+  `status` varchar(255) NOT NULL,
+  `remarks` text DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `life`
+-- Dumping data for table `manage`
 --
 
-INSERT INTO `life` (`id`, `title`, `name`, `date`, `time`, `location`) VALUES
-(1, 'Swimming', 'Paul Henry Elizalde', '2023-10-17', '21:44:00', 'Hometown'),
-(2, 'Yoga', 'Jacob Hayes', '2023-10-11', '22:51:00', 'Home'),
-(3, 'Hiking', 'Ruth Vegas', '2023-10-20', '06:00:00', 'Singapore'),
-(140, 'Swimming', 'Paul Henry Elizalde', '2023-10-25', '11:10:00', 'Hometown'),
-(141, 'Swimming', 'Paul Henry Elizalde', '2023-10-25', '11:10:00', 'Hometown'),
-(142, 'jhnb', 'nhb', '2023-10-21', '11:11:00', 'Hometown'),
-(143, 'Bike', 'Paul Henry Elizalde', '2023-10-12', '11:10:00', 'Hometown'),
-(144, 'Swimming', 'Paul Henry Elizalde', '2023-11-12', '23:11:00', 'Hometown'),
-(145, 'Bike', 'Jacob Hayes', '2023-10-20', '12:13:00', 'Hometown');
+INSERT INTO `manage` (`id`, `status`, `remarks`, `created_at`) VALUES
+(1, 'Remarks', 'hgjngfhn', '2023-10-11 11:52:20'),
+(2, 'Remarks', 'werdf', '2023-10-11 11:53:03'),
+(19, 'Remarks', 'fvbhfgv', '2023-10-12 03:12:38'),
+(24, 'Remarks', 'dfgb', '2023-10-12 11:25:29');
 
 -- --------------------------------------------------------
 
@@ -111,9 +109,9 @@ ALTER TABLE `activities`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `life`
+-- Indexes for table `manage`
 --
-ALTER TABLE `life`
+ALTER TABLE `manage`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -130,13 +128,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `activities`
 --
 ALTER TABLE `activities`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=161;
 
 --
--- AUTO_INCREMENT for table `life`
+-- AUTO_INCREMENT for table `manage`
 --
-ALTER TABLE `life`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=146;
+ALTER TABLE `manage`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `users`
