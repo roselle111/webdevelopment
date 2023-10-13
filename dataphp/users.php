@@ -18,6 +18,7 @@ function displayUsers() {
                 <th>Name</th>
                 <th>Password</th>
                 <th>Role</th>
+                <th>Status</th>
                 <th>Gender</th>
             </tr>';
 
@@ -27,6 +28,7 @@ function displayUsers() {
         echo "<td>" . htmlspecialchars($row['Name']) . "</td>";
         echo "<td>" . htmlspecialchars($row['Password']) . "</td>";
         echo "<td>" . htmlspecialchars($row['Role']) . "</td>";
+        echo "<td>" . htmlspecialchars($row['Status']) . "</td>";
         echo "<td>" . htmlspecialchars($row['Gender']) . "</td>";
         echo "</tr>";
     }
