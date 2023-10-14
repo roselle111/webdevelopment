@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 12, 2023 at 01:44 PM
+-- Generation Time: Oct 13, 2023 at 01:41 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -34,42 +34,20 @@ CREATE TABLE `activities` (
   `date` date NOT NULL,
   `time` time NOT NULL,
   `location` varchar(255) NOT NULL,
-  `ootd` varchar(255) DEFAULT NULL,
-  `status` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `activities`
---
-
-INSERT INTO `activities` (`id`, `title`, `name`, `date`, `time`, `location`, `ootd`, `status`) VALUES
-(151, 'Hiking', 'Paul Henry Elizalde', '2023-10-13', '18:44:00', 'Hometown', 'Athletic tops', NULL),
-(152, 'Swimming', 'Paul Henry Elizalde', '2023-10-09', '18:45:00', 'Singapore', 'Bodysuit', NULL),
-(159, 'Swimming', 'Ruth Vegas', '2023-10-16', '19:22:00', 'Hometown', 'Bodysuit', NULL),
-(160, 'Hiking', 'Jacob Hayes', '2023-10-20', '19:29:00', 'Hometown', 'Athletic tops', NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `manage`
---
-
-CREATE TABLE `manage` (
-  `id` int(11) NOT NULL,
+  `ootd` varchar(255) NOT NULL,
   `status` varchar(255) NOT NULL,
   `remarks` text DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `manage`
+-- Dumping data for table `activities`
 --
 
-INSERT INTO `manage` (`id`, `status`, `remarks`, `created_at`) VALUES
-(1, 'Remarks', 'hgjngfhn', '2023-10-11 11:52:20'),
-(2, 'Remarks', 'werdf', '2023-10-11 11:53:03'),
-(19, 'Remarks', 'fvbhfgv', '2023-10-12 03:12:38'),
-(24, 'Remarks', 'dfgb', '2023-10-12 11:25:29');
+INSERT INTO `activities` (`id`, `title`, `name`, `date`, `time`, `location`, `ootd`, `status`, `remarks`, `created_at`) VALUES
+(1, 'Swimming', 'Paul Henry Elizalde', '2023-10-17', '12:53:00', 'Italy', 'Bodysuit', 'Done', '', '2023-10-13 04:50:42'),
+(2, 'Swimming', 'Jacob Hayes', '2023-10-19', '12:03:00', 'Canada', 'Bodysuit', 'Remarks', 'werfhg', '2023-10-13 04:59:49'),
+(3, 'Horseback riding', 'Jacob Hayes', '2023-11-11', '16:11:00', 'Norway', 'Jodhpurs, knee-high riding boots, a certified helmet, gloves, and a moisture-wicking shirt.', 'Cancel', '', '2023-10-13 05:08:25');
 
 -- --------------------------------------------------------
 
@@ -96,7 +74,7 @@ INSERT INTO `users` (`id`, `Email`, `Password`, `Name`, `Role`, `Status`, `Gende
 (2, 'ruthvegas@gmail.com', 'ruthy', 'Ruth Vegas', 'user', 'active', 'female'),
 (3, 'paul@gmail.com', 'what???', 'Paul Henry Elizalde', 'user', 'active', 'male'),
 (4, 'j.hayes@gmail.com', 'notjacob', 'Jacob Hayes', 'user', 'active', 'male'),
-(5, 'olivia.morgan@gmail.com', 'red12345', 'Olivia Morgan', 'user', 'active', 'female');
+(5, 'olivia.morgan@gmail.com', 'red12345', 'Olivia Morgan', 'user', 'inactive', 'female');
 
 --
 -- Indexes for dumped tables
@@ -106,12 +84,6 @@ INSERT INTO `users` (`id`, `Email`, `Password`, `Name`, `Role`, `Status`, `Gende
 -- Indexes for table `activities`
 --
 ALTER TABLE `activities`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `manage`
---
-ALTER TABLE `manage`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -128,13 +100,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `activities`
 --
 ALTER TABLE `activities`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=161;
-
---
--- AUTO_INCREMENT for table `manage`
---
-ALTER TABLE `manage`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `users`
