@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 13, 2023 at 01:41 PM
+-- Generation Time: Oct 14, 2023 at 11:42 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -45,9 +45,10 @@ CREATE TABLE `activities` (
 --
 
 INSERT INTO `activities` (`id`, `title`, `name`, `date`, `time`, `location`, `ootd`, `status`, `remarks`, `created_at`) VALUES
-(1, 'Swimming', 'Paul Henry Elizalde', '2023-10-17', '12:53:00', 'Italy', 'Bodysuit', 'Done', '', '2023-10-13 04:50:42'),
-(2, 'Swimming', 'Jacob Hayes', '2023-10-19', '12:03:00', 'Canada', 'Bodysuit', 'Remarks', 'werfhg', '2023-10-13 04:59:49'),
-(3, 'Horseback riding', 'Jacob Hayes', '2023-11-11', '16:11:00', 'Norway', 'Jodhpurs, knee-high riding boots, a certified helmet, gloves, and a moisture-wicking shirt.', 'Cancel', '', '2023-10-13 05:08:25');
+(1, 'Swimming', 'Paul Henry Elizalde', '2023-10-17', '12:53:00', 'Italy', 'Bodysuit', 'Done', '', '2023-10-12 20:50:42'),
+(2, 'Swimming', 'Jacob Hayes', '2023-10-19', '12:03:00', 'Canada', 'Bodysuit', 'Remarks', 'werfhg', '2023-10-12 20:59:49'),
+(3, 'Horseback riding', 'Jacob Hayes', '2023-11-11', '16:11:00', 'Norway', 'Jodhpurs, knee-high riding boots, a certified helmet, gloves, and a moisture-wicking shirt.', 'Cancel', '', '2023-10-12 21:08:25'),
+(4, 'Swimming', 'Jacob Hayes', '2023-10-19', '06:28:00', 'Singapore', 'Bodysuit', 'Done', '', '2023-10-14 08:38:47');
 
 -- --------------------------------------------------------
 
@@ -100,7 +101,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `activities`
 --
 ALTER TABLE `activities`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`

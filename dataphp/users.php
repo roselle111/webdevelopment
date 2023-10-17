@@ -69,6 +69,8 @@ function displayUsers() {
         }
 
         nav ul {
+            display: flex;
+            flex-direction: column;
             list-style-type: none;
             margin: 0;
             padding: 0;
@@ -82,7 +84,6 @@ function displayUsers() {
         nav a {
             display: block;
             color: white;
-            text-align: center;
             padding: 14px 16px;
             text-decoration: none;
             transition: background-color 0.3s;
@@ -130,6 +131,7 @@ function displayUsers() {
     <nav>
         <ul>
             <li><a href="admin_home.php">Home</a></li>
+            <li><a href="pie.php">Charts</a></li>
             <li><a href="logout.php">Logout</a></li>
         </ul>
     </nav>

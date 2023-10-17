@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 if ($_SESSION["Role"] == null) {
  header("Location: main.html");
 } else {

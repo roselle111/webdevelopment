@@ -13,17 +13,19 @@ $row = $result->fetch_assoc();
 
 if ($row["Email"] == $email && $row["Password"]== $password){ 
     if ($row["Role"] == "admin") {
-        $_SESSION["Role"] = "admin"; 
 
         header("Location: admin_home.php");
 
-    } else {
-
-        $_SESSION["Role"] = "user";
+    } else if($row['Role'] == "user") {
 
         header("Location: users_home.php");
 
     }
+
+    $_SESSION['userId'] = $row['id'];
+    $_SESSION['Role'] = $row['Role'];
+
+
 } else {
     header("Location: ../main.html");
 }

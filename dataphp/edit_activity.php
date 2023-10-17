@@ -6,7 +6,15 @@
     <title>Edit Activity</title>
     <link rel="stylesheet" href="../css/edit.css">
 </head>
-
+<style>
+    nav ul{
+        display: flex;
+        flex-direction: column;
+    }
+    nav a{
+        text-align: left;
+    }
+</style>
 <body>
     <nav>
         <ul>
@@ -17,15 +25,16 @@
 
     <div class="main">
         <h1>Activity List</h1>
-
+        
         <?php
+        session_start();
         include_once("../includes/dbutil.php");
 
         function displayActivities()
         {
             $conn = getConnection();
-
-            $sql = "SELECT * FROM activities";
+            $userId = $_SESSION['userId'];
+            $sql = "SELECT * FROM activities where userId = $userId";
             $result = mysqli_query($conn, $sql);
 
             if (!$result) {
@@ -36,7 +45,6 @@
                     <tr>
                         <th>ID</th>
                         <th>Title</th>
-                        <th>Name</th>
                         <th>Date</th>
                         <th>Time</th>
                         <th>Location</th>
@@ -51,7 +59,6 @@
                 echo "<tr>";
                 echo "<td>" . htmlspecialchars($row['id']) . "</td>";
                 echo "<td>" . htmlspecialchars($row['title']) . "</td>";
-                echo "<td>" . htmlspecialchars($row['name']) . "</td>";
                 echo "<td>" . htmlspecialchars($row['date']) . "</td>";
                 echo "<td>" . htmlspecialchars($row['time']) . "</td>";
                 echo "<td>" . htmlspecialchars($row['location']) . "</td>";
@@ -61,14 +68,14 @@
                 echo "<td>" . htmlspecialchars($row['created_at']) . "</td>";
 
                 // Add an Edit button for each row
-                echo "<td><button onclick='editActivity(" . $row['id'] . ", \"" . $row['title'] . "\", \"" . $row['name'] . "\", \"" . $row['date'] . "\", \"" . $row['time'] . "\", \"" . $row['location'] . "\", \"" . $row['ootd'] . "\", \"" . $row['status'] . "\", \"" . $row['remarks'] . "\", \"" . $row['created_at'] . "\")'>Edit</button></td>";
+                echo "<td><button onclick='editActivity(" . $row['id'] . ", \"" . $row['title'] . "\", \"" .  "\", \"" . $row['date'] . "\", \"" . $row['time'] . "\", \"" . $row['location'] . "\", \"" . $row['ootd'] . "\", \"" . $row['status'] . "\", \"" . $row['remarks'] . "\", \"" . $row['created_at'] . "\")'>Edit</button></td>";
 
                 echo "</tr>";
             }
 
             echo '</table>';
 
-            closeConnection($conn);
+
         }
 
         // Call the function to display activities
@@ -83,8 +90,6 @@
                 <!-- Include other input fields for editing other details -->
                 <label for="editActivityTitle">Title:</label>
                 <input type="text" id="editActivityTitle" name="editActivityTitle" required>
-                <label for="editActivityName">Name:</label>
-                <input type="text" id="editActivityName" name="editActivityName" required>
                 <label for="editActivityDate">Date:</label>
                 <input type="date" id="editActivityDate" name="editActivityDate" required>
                 <label for="editActivityTime">Time:</label>
@@ -112,11 +117,10 @@
     </div>
 
     <script>
-        function editActivity(activityId, title, name, date, time, location, ootd, status, remarks, created_at) {
+        function editActivity(activityId, title, date, time, location, ootd, status, remarks, created_at) {
             // Populate the edit form with activity details
             document.getElementById("editActivityId").value = activityId;
             document.getElementById("editActivityTitle").value = title;
-            document.getElementById("editActivityName").value = name;
             document.getElementById("editActivityDate").value = date;
             document.getElementById("editActivityTime").value = time;
             document.getElementById("editActivityLocation").value = location;

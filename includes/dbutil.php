@@ -14,7 +14,8 @@ function getConnection(){
     return $conn;
 }
 
-function closeConnection($conn){
+function closeConnection(){
+    global $conn;
     $conn->close();
 }
 

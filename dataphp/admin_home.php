@@ -1,5 +1,15 @@
 <?php
-include_once('../includes/adminSessions.php');
+session_start();
+
+if ($_SESSION["Role"] == null) {
+    header("Location: main.html");
+   } else {
+    if ($_SESSION["Role"] == "admin") {
+    } else {
+     header("Location: main.html");
+    }
+}
+   
 ?>
 <!DOCTYPE html>
 <head>
@@ -17,11 +27,21 @@ include_once('../includes/adminSessions.php');
         }
 
         nav {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
             background-color: #333;
-            overflow: hidden;
+            overflow-x: hidden;
+            padding-top: 20px;
+            transition: 0.5s;
         }
 
         nav ul {
+            display: flex;
+            flex-direction: column;
             list-style-type: none;
             margin: 0;
             padding: 0;
@@ -35,19 +55,13 @@ include_once('../includes/adminSessions.php');
         nav a {
             display: block;
             color: white;
-            text-align: center;
             padding: 14px 16px;
             text-decoration: none;
-            font-size: 18px;
+            transition: background-color 0.3s;
         }
 
         nav a:hover {
-            background-color: #ddd;
-            color: black;
-        }
-
-        .logout {
-            float: left; /* Updated to align with the "Users" link */
+            background-color: #555;
         }
 
         h1 {
@@ -90,10 +104,12 @@ include_once('../includes/adminSessions.php');
 
 <body>
 
-    <div class="sidebar">
-        <a href="users.php">Users</a>
-        <div class="logout"><a href="logout.php">Logout</a></div>
-    </div>
+    <nav>
+        <ul>
+            <li><a href="users.php">Users</a></li>
+            <li><a href="logout.php">Logout</a></li>
+        </ul>
+    </nav>
 
     <div class="content">
         <h1>Welcome to Admin Home Page</h1>
