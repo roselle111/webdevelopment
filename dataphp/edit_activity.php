@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Activity</title>
     <link rel="stylesheet" href="../css/edit.css">
 </head>
+
 <style>
-    nav ul{
+    nav ul {
         display: flex;
         flex-direction: column;
     }
-    nav a{
+
+    nav a {
         text-align: left;
     }
 </style>
+
 <body>
     <nav>
         <ul>
@@ -25,7 +29,7 @@
 
     <div class="main">
         <h1>Activity List</h1>
-        
+
         <?php
         session_start();
         include_once("../includes/dbutil.php");
@@ -68,20 +72,19 @@
                 echo "<td>" . htmlspecialchars($row['created_at']) . "</td>";
 
                 // Add an Edit button for each row
-                echo "<td><button onclick='editActivity(" . $row['id'] . ", \"" . $row['title'] . "\", \"" .  "\", \"" . $row['date'] . "\", \"" . $row['time'] . "\", \"" . $row['location'] . "\", \"" . $row['ootd'] . "\", \"" . $row['status'] . "\", \"" . $row['remarks'] . "\", \"" . $row['created_at'] . "\")'>Edit</button></td>";
+                echo "<td><button onclick='editActivity(" . $row['id'] . ", \"" . $row['title'] . "\", \"" . $row['date'] . "\", \"" . $row['time'] . "\", \"" . $row['location'] . "\", \"" . $row['ootd'] . "\", \"" . $row['status'] . "\", \"" . $row['remarks'] . "\", \"" . $row['created_at'] . "\")'>Edit</button></td>";
 
                 echo "</tr>";
             }
 
             echo '</table>';
-
-
         }
 
         // Call the function to display activities
         displayActivities();
         ?>
-
+               
+               <!--DISPLAY EDIT-->
         <!-- Add this where you want to display the edit form -->
         <div id="editFormContainer" style="display: none;">
             <form id="editForm" action="editprocess.php" method="post">
@@ -149,10 +152,10 @@
         }
 
         function closeEditForm() {
-        // Hide the edit form and show the table
-        document.getElementById("editFormContainer").style.display = "none";
-        document.getElementById("activityTable").style.display = "block";
-    }
+            // Hide the edit form and show the table
+            document.getElementById("editFormContainer").style.display = "none";
+            document.getElementById("activityTable").style.display = "block";
+        }
     </script>
 </body>
 

@@ -5,7 +5,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Retrieve data from the edit form
     $editActivityId = $_POST["editActivityId"];
     $editActivityTitle = $_POST["editActivityTitle"];
-    $editActivityName = $_POST["editActivityName"];
     $editActivityDate = $_POST["editActivityDate"];
     $editActivityTime = $_POST["editActivityTime"];
     $editActivityLocation = $_POST["editActivityLocation"];

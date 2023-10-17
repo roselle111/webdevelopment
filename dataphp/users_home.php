@@ -1,18 +1,8 @@
 <?php
 session_start();
-
-if ($_SESSION["Role"] == null) {
- header("Location: main.html");
-} else {
- if ($_SESSION["Role"] == "user") {
- } else {
-  header("Location: main.html");
- }
-}
-
-
-
+include_once("../includes/dbutil.php");
 ?>
+
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
@@ -108,8 +98,9 @@ if ($_SESSION["Role"] == null) {
 
     <nav>
         <ul>
-            <li><a href="../life.html">Add Activity</a></li>
+            <li><a href="../add_activities.html">Add Activity</a></li>
             <li><a href="edit_activity.php">Edit Activity</a></li>
+            <li><a href="all_activities.php">All Activities</a></li>
             <li><a href="logout.php">Logout</a></li>
         </ul>
     </nav>

@@ -14,9 +14,15 @@ function getConnection(){
     return $conn;
 }
 
-function closeConnection(){
-    global $conn;
+function closeConnection($conn){
     $conn->close();
 }
 
+// Open the connection
+$conn = getConnection();
+
+// Perform some database operations
+
+// Close the connection
+closeConnection($conn);
 ?>
