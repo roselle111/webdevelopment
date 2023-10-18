@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if (mysqli_stmt_execute($stmt)) {
             // Provide user feedback
-            header('Location: ../life.html');
+            header('Location: ../dataphp/addactivity.php');
         } else {
             // Provide user feedback in case of an error
             echo "Error: " . mysqli_error($conn);

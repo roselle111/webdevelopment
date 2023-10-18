@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/life.css">
+    <title>All Activities</title>
+    <link rel="stylesheet" href="../css/addactivity.css">
 </head>
 <body>
-    <!-- Life Activities Manager Form -->
-    <form id="activityForm" action="dataphp/addprocess_act.php" method="post">
+    <nav>
+        <ul>
+            <li><a href="users_home.php">Home</a></li>
+            <li><a href="logout.php">Logout</a></li>
+        </ul>
+    </nav>
+
+    <div class="main">
+        <!-- Life Activities Manager Form -->
+    <form id="activityForm" action="addprocess_act.php" method="post">
         <label for="activityTitle">Title:</label>
         <input type="text" id="activityTitle" name="activityTitle" required>
 
@@ -51,9 +61,8 @@
         }
     </script>
 
-    <br><br>
-    <br><br>
-    <a href="dataphp/users_home.php">Back to Home</a>
-
+        
+    </div>
 </body>
+
 </html>

@@ -98,7 +98,7 @@ include_once("../includes/dbutil.php");
 
     <nav>
         <ul>
-            <li><a href="../add_activities.html">Add Activity</a></li>
+            <li><a href="addactivity.php">Add Activity</a></li>
             <li><a href="edit_activity.php">Edit Activity</a></li>
             <li><a href="all_activities.php">All Activities</a></li>
             <li><a href="logout.php">Logout</a></li>
