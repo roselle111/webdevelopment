@@ -103,7 +103,6 @@ if ($_SESSION["Role"] == null) {
 </head>
 
 <body>
-
     <nav>
         <ul>
             <li><a href="users.php">Users</a></li>

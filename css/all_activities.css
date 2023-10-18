@@ -151,3 +151,18 @@ button:hover {
         float: none;
     }
 }
+/* Styling for the delete button */
+.delete-button {
+    background-color: #dc3545; /* Red color */
+    color: #fff; /* White color for text */
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.delete-button:hover {
+    background-color: #c82333; /* Darker red color on hover */
+}

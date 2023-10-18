@@ -2,17 +2,17 @@
 
 session_start();
 
-include_once("includes/dbutil.php");
+include_once("../includes/dbutil.php");
 
-$conn = getConnection();
+$conn = getConnection(); // Use the correct function name
 
 if (isset($_POST['register'])) {
-    $name = $_POST["name"];
+    $name = $_POST["fullname"];
     $email = $_POST['email'];
     $password = $_POST['password'];
     $gender = $_POST['gender'];
-    $role = $_POST['role'];
-    $status = $_POST['status'];
+    $role = 'user';
+    $status = 'active';
 
     $sql = "INSERT INTO users (Email, Password, Name, Gender, Role, Status)
     VALUES ('" . $email . "','" . $password . "','" . $name . "','" . $gender . "','" . $role . "','" . $status . "')";
@@ -30,6 +30,6 @@ if (isset($_POST['register'])) {
         header('Location: registration-form.php');
     }
 
-    closeConnection(); // Corrected the function name
+    closeConnection(); 
 }
 ?>

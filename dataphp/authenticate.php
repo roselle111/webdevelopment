@@ -30,6 +30,6 @@ if ($row["Email"] == $email && $row["Password"]== $password){
     header("Location: ../main.html");
 }
 
-closeConnection();
+closeConnection($conn);
 
 ?>

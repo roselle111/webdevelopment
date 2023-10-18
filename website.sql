@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 17, 2023 at 02:18 PM
+-- Generation Time: Oct 18, 2023 at 09:11 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -45,11 +45,12 @@ CREATE TABLE `activities` (
 --
 
 INSERT INTO `activities` (`id`, `title`, `date`, `time`, `location`, `ootd`, `status`, `remarks`, `created_at`, `userId`) VALUES
-(1, 'Swimming', '2023-10-17', '12:53:00', 'Italy', 'Bodysuit', 'Done', '', '2023-10-12 20:50:42', 2),
-(2, 'Swimmingfasfasf', '2023-10-19', '12:03:00', 'Canada', 'Bodysuit', 'Remarks', 'werfhg', '2023-10-12 20:59:49', 2),
-(3, 'Horseback riding', '2023-11-11', '16:11:00', 'Norway', 'Jodhpurs, knee-high riding boots, a certified helmet, gloves, and a moisture-wicking shirt.', 'Cancel', '', '2023-10-12 21:08:25', 5),
-(4, 'Swimming', '2023-10-19', '06:28:00', 'Singapore', 'Bodysuit', 'Done', '', '2023-10-14 08:38:47', 4),
-(5, 'Fishing', '2023-10-21', '06:35:00', 'Hometown', 'Sun shirts and shorts', 'Done', '', '2023-10-17 08:36:02', 3);
+(1, 'Swimming', '2023-10-19', '12:03:00', 'Canada', 'Bodysuit', 'Remarks', 'werfhg', '2023-10-12 20:59:49', 2),
+(2, 'Horseback riding', '2023-11-11', '16:11:00', 'Norway', 'Jodhpurs, knee-high riding boots, a certified helmet, gloves, and a moisture-wicking shirt.', 'Cancel', '', '2023-10-12 21:08:25', 5),
+(3, 'Swimming', '2023-10-19', '06:28:00', 'Singapore', 'Bodysuit', 'Done', '', '2023-10-14 08:38:47', 4),
+(4, 'Swimming', '2023-10-21', '06:45:00', 'Hometown', 'Bodysuit', 'Done', '', '2023-10-17 08:36:02', 3),
+(5, 'Bike', '2023-10-08', '07:40:00', 'Hometown', 'Sun shirts and shorts', 'Done', '', '2023-10-18 04:38:09', 1),
+(6, 'Bike', '2023-10-02', '16:40:00', 'Hometown', 'Sun shirts and shorts', 'Done', '', '2023-10-18 06:37:09', 3);
 
 -- --------------------------------------------------------
 
@@ -73,10 +74,14 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `Email`, `Password`, `Name`, `Role`, `Status`, `Gender`) VALUES
 (1, 'rosellemartinez09@gmail.com', 'laravel', 'Roselle Martinez', 'admin', 'active', 'female'),
-(2, 'ruth@gmail.com', 'ruth', 'Ruth Vegas', 'user', 'active', 'female'),
+(2, 'ruthvegas@gmail.com', 'ruth', 'Ruth Vegas', 'user', 'active', 'female'),
 (3, 'paul@gmail.com', 'paul', 'Paul Henry Elizalde', 'user', 'active', 'male'),
 (4, 'j.hayes@gmail.com', 'notjacob', 'Jacob Hayes', 'user', 'active', 'male'),
-(5, 'olivia.morgan@gmail.com', 'red12345', 'Olivia Morgan', 'user', 'inactive', 'female');
+(5, 'olivia.morgan@gmail.com', 'red12345', 'Olivia Morgan', 'user', 'inactive', 'female'),
+(6, 'hogan.aarav@gmail.com', 'hogan', 'Aarav Hogan', 'user', 'inactive', 'male'),
+(7, 'tina@gmail.com', '12345', 'Agustina Gamboa', '', '', 'female'),
+(8, 'keziah@gmail.com', '12345', 'Keziah Alliah Cartilla', 'user', 'inactive', 'female'),
+(9, 'bryanalcover@gmail.com', 'joke', 'Bryan Alcover', 'user', 'inactive', 'male');
 
 --
 -- Indexes for dumped tables
@@ -86,7 +91,8 @@ INSERT INTO `users` (`id`, `Email`, `Password`, `Name`, `Role`, `Status`, `Gende
 -- Indexes for table `activities`
 --
 ALTER TABLE `activities`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_activities_users` (`userId`);
 
 --
 -- Indexes for table `users`
@@ -102,13 +108,23 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `activities`
 --
 ALTER TABLE `activities`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `activities`
+--
+ALTER TABLE `activities`
+  ADD CONSTRAINT `fk_activities_users` FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

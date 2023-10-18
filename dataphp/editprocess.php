@@ -16,7 +16,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $conn = getConnection();
 
     // Example: Replace placeholders with actual column names
-    $sql = "UPDATE activities SET title = ?, name = ?, date = ?, time = ?, location = ?, ootd = ?, status = ?, remarks = ? WHERE id = ?";
+    $sql = "UPDATE activities SET title = ?, date = ?, time = ?, location = ?, ootd = ?, status = ?, remarks = ? WHERE id = ?";
+
     $stmt = mysqli_prepare($conn, $sql);
 
     if (!$stmt) {
@@ -24,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
     // Bind parameters for the prepared statement
-    mysqli_stmt_bind_param($stmt, "ssssssssi", $editActivityTitle, $editActivityName, $editActivityDate, $editActivityTime, $editActivityLocation, $editActivityOotd, $editActivityStatus, $editActivityRemarks, $editActivityId);
+    mysqli_stmt_bind_param($stmt, "sssssssi", $editActivityTitle, $editActivityDate, $editActivityTime, $editActivityLocation, $editActivityOotd, $editActivityStatus, $editActivityRemarks, $editActivityId);
 
     if (!mysqli_stmt_execute($stmt)) {
         die("Statement execution failed: " . mysqli_error($conn));

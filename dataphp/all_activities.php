@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,7 +44,7 @@
                         <th>Status</th>
                         <th>Remarks</th>
                         <th>Created At</th>
-                        <!-- You can remove the "Edit" column for the "All Activities" page -->
+                        <th>Action</th>
                     </tr>';
 
             while ($row = mysqli_fetch_assoc($result)) {
@@ -60,7 +59,13 @@
                 echo "<td>" . htmlspecialchars($row['remarks']) . "</td>";
                 echo "<td>" . htmlspecialchars($row['created_at']) . "</td>";
 
-                // You can remove the "Edit" button for the "All Activities" page
+                // Add the delete button with a confirmation prompt
+                echo '<td>
+                        <form id="deleteForm' . $row['id'] . '" action="delete.activity.php" method="post">
+                            <input type="hidden" name="activityId" value="' . htmlspecialchars($row['id']) . '">
+                            <button type="button" onclick="confirmDelete(' . $row['id'] . ')">Delete</button>
+                        </form>
+                    </td>';
 
                 echo "</tr>";
             }
@@ -71,7 +76,16 @@
         // Call the function to display activities
         displayActivities();
         ?>
+
+        <script>
+            function confirmDelete(activityId) {
+                var result = confirm("Are you sure you want to delete this activity?");
+                if (result) {
+                    // If the user clicks "OK," submit the form
+                    document.getElementById("deleteForm" + activityId).submit();
+                }
+            }
+        </script>
     </div>
 </body>
-
 </html>
