@@ -131,8 +131,6 @@ function displayUsers() {
     <nav>
         <ul>
             <li><a href="admin_home.php">Home</a></li>
-            <li><a href="pie.php">Charts</a></li>
-            <li><a href="logout.php">Logout</a></li>
         </ul>
     </nav>
 
