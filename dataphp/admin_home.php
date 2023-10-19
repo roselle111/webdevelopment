@@ -106,6 +106,7 @@ if ($_SESSION["Role"] == null) {
     <nav>
         <ul>
             <li><a href="users.php">Users</a></li>
+            <li><a href="bargraph.php">Bar Graph</a></li>
             <li><a href="logout.php">Logout</a></li>
         </ul>
     </nav>

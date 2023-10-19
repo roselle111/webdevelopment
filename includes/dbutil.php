@@ -18,11 +18,7 @@ function closeConnection($conn){
     $conn->close();
 }
 
-// Open the connection
 $conn = getConnection();
 
-// Perform some database operations
-
-// Close the connection
 closeConnection($conn);
 ?>

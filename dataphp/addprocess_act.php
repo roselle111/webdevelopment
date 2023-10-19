@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once('../includes/db_connection.php');
+include_once('../includes/dbutil.php');
 $conn = getConnection();
 
 // Check if the user is logged in
@@ -13,8 +13,6 @@ if (isset($_SESSION['userId'])) {
             // Update existing activity status
             $activityStatus = mysqli_real_escape_string($conn, $_POST['activityStatus']);
             $remarks = mysqli_real_escape_string($conn, $_POST['remarks'] ?? '');
-
-            // Perform validation if needed
 
             // Update data in the 'activities' table
             $sql = "INSERT INTO activities (title, date, time, location, ootd, status, remarks, userId) 
@@ -30,23 +28,18 @@ if (isset($_SESSION['userId'])) {
             mysqli_stmt_bind_param($stmt, "sssssssi", $title, $date, $time, $location, $ootd, $activityStatus, $remarks, $userId);
 
             if (mysqli_stmt_execute($stmt)) {
-                // Provide user feedback
                 header('Location: ../dataphp/addactivity.php');
             } else {
-                // Provide user feedback in case of an error
                 echo "Error: " . mysqli_error($conn);
             }
 
-            // Close the statement
             mysqli_stmt_close($stmt);
         }
     }
 } else {
-    // Redirect the user to the login page or handle as needed
+
     header('Location: ../main.html');
     exit;
 }
-
-// Close the database connection
 mysqli_close($conn);
 ?>
