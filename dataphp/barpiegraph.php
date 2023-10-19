@@ -115,39 +115,6 @@ mysqli_close($conn);
         nav a:hover {
             background-color: #555;
         }
-        #container {
-        display: flex;
-        justify-content: space-between;
-        max-width: 1200px;
-        background-color: #fff;
-        border: 1px solid #ccc;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        border-radius: 10px;
-        margin: 20px;
-    }
-
-    #pie-chart,
-    #bar-chart {
-        flex: 1;
-        padding: 20px;
-        text-align: center;
-        border: 1px solid #ccc;
-    }
-
-    #pie-chart {
-        border-right: none;
-    }
-
-    h1 {
-        font-size: 24px;
-        margin-bottom: 20px;
-    }
-
-    canvas {
-        width: 100%;
-        max-width: 400px;
-        margin: 0 auto;
-    }
     </style>
 </head>
 <body>

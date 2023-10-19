@@ -11,7 +11,6 @@
     <nav>
         <ul>
             <li><a href="users_home.php">Home</a></li>
-            <li><a href="logout.php">Logout</a></li>
         </ul>
     </nav>
 
