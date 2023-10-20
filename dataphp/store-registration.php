@@ -4,7 +4,7 @@ session_start();
 
 include_once("../includes/dbutil.php");
 
-$conn = getConnection(); // Use the correct function name
+$conn = getConnection();
 
 if (isset($_POST['register'])) {
     $name = $_POST["fullname"];

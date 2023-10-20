@@ -1,6 +1,6 @@
 <?php
-session_start();
 include_once("../includes/dbutil.php");
+include_once("../includes/userSessions.php");
 ?>
 
 <!DOCTYPE html>

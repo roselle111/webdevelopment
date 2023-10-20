@@ -6,11 +6,11 @@ if ($_SESSION["Role"] == null) {
    } else {
     if ($_SESSION["Role"] == "admin") {
     } else {
-     header("Location: main.html");
+     header("Location: index.html");
     }
 }
-   
 ?>
+
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">

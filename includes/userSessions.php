@@ -5,7 +5,7 @@ if ($_SESSION["Role"] == null) {
 } else {
  if ($_SESSION["Role"] == "user") {
  } else {
-  header("Location: main.html");
+  header("Location: index.html");
  }
 }
 ?>
