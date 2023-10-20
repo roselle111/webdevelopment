@@ -6,8 +6,7 @@
     <title>Create Announcement</title>
     <link rel="stylesheet" href="../css/create.css">
 </head>
-<body>
-   
+<body> 
     <nav>
         <ul>
             <li><a href="admin_home.php">Home</a></li>
