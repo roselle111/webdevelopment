@@ -1,31 +1,79 @@
-<?php
-session_start();
-
-if ($_SESSION["Role"] == null) {
-    header("Location: main.html");
-   } else {
-    if ($_SESSION["Role"] == "admin") {
-    } else {
-     header("Location: index.html");
-    }
-}
-?>
-
 <!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Home</title>
+    <title>Create Announcement</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
             background-color: #f4f4f4;
             font-size: 16px;
-        
+
         }
 
+        .container {
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            padding: 20px;
+            width: 400px;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 93%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input[type="text"]:focus,
+        textarea:focus {
+            border: 2px solid #555;
+        }
+
+        input[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            display: block;
+            margin: 20px auto;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #555;
+        }
+
+        textarea {
+            resize: vertical;
+        }
         nav {
             height: 100%;
             width: 250px;
@@ -101,21 +149,23 @@ if ($_SESSION["Role"] == null) {
         }
     </style>
 </head>
-
 <body>
+   
     <nav>
         <ul>
-            <li><a href="users.php">Users</a></li>
-            <li><a href="barpiegraph.php">Graphs</a></li>
-            <li><a href="create_announcement.php">Announcement</a></li>
-            <li><a href="logout.php">Logout</a></li>
+            <li><a href="admin_home.php">Home</a></li>
         </ul>
     </nav>
-
-    <div class="content">
-        <h1>Welcome to Admin Home Page</h1>
+    </nav>
+    <div class="container">
+        <h1>Create Announcement</h1>
+        <form action="process_announcemet.php" method="post">
+            <label for="title">Title:</label>
+            <input type="text" name="title" required>
+            <label for="content">Content:</label>
+            <textarea name="content" rows="4" required></textarea>
+            <input type="submit" value="Submit Announcement">
+        </form>
     </div>
-
 </body>
-
 </html>

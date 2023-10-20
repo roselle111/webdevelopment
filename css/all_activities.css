@@ -1,11 +1,4 @@
-body,
-h1,
-h2,
-h3,
-p,
-ul,
-li,
-form {
+body,h1,h2,h3,p,ul,li,form {
     margin: 0;
     padding: 0;
 }
@@ -17,7 +10,6 @@ body {
     line-height: 1.6;
 }
 
-/* Navigation styles */
 nav {
     height: 100%;
     width: 250px;
@@ -29,13 +21,6 @@ nav {
     overflow-x: hidden;
     padding-top: 20px;
     transition: 0.5s;
-}
-nav ul {
-    display: flex;
-    flex-direction: column;
-}
-nav li {
-    float: left;
 }
 
 nav a {
@@ -128,11 +113,6 @@ button:hover {
     background-color: #31b0d5;
 }
 
-/* Edit form container */
-#editFormContainer {
-    display: none;
-}
-
 /* Additional styles for responsiveness */
 @media screen and (max-width: 768px) {
     nav {
@@ -150,19 +130,4 @@ button:hover {
         width: 100%;
         float: none;
     }
-}
-/* Styling for the delete button */
-.delete-button {
-    background-color: #dc3545; /* Red color */
-    color: #fff; /* White color for text */
-    padding: 8px 16px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background-color 0.3s;
-}
-
-.delete-button:hover {
-    background-color: #c82333; /* Darker red color on hover */
 }

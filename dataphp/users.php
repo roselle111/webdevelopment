@@ -138,7 +138,6 @@ function displayUsers() {
         <h1>User List</h1>
 
         <?php
-        // Call the function to display users
         displayUsers();
         ?>
 
