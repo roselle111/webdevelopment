@@ -3,7 +3,7 @@ session_start();
 include_once('../includes/dbutil.php');
 $conn = getConnection();
 
-// Check if the user is logged in
+
 if (isset($_SESSION['userId'])) {
     $userId = $_SESSION['userId'];
 

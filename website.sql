@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 19, 2023 at 01:09 PM
+-- Generation Time: Oct 20, 2023 at 12:48 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -50,7 +50,32 @@ INSERT INTO `activities` (`id`, `title`, `date`, `time`, `location`, `ootd`, `st
 (5, 'Bike', '2023-10-08', '07:40:00', 'Hometown', 'Sun shirts and shorts', 'Cancel', '', '2023-10-18 04:38:09', 1),
 (6, 'Bike', '2023-10-02', '16:40:00', 'Hometown', 'Sun shirts and shorts', 'Cancel', '', '2023-10-18 06:37:09', 3),
 (7, 'Hiking', '2023-10-13', '05:40:00', 'Norway', 'Sun shirts and shorts', 'Remarks', 'get sick.', '2023-01-02 07:46:22', 8),
-(29, 'Hiking', '2023-01-28', '05:00:00', 'New Zealand', 'shorts, a moisture-wicking shirt, comfortable hiking boots, a hat, and sunglasses', 'Done', '', '2023-10-19 07:57:03', 10);
+(8, 'Hiking', '2023-01-28', '05:00:00', 'New Zealand', 'shorts, a moisture-wicking shirt, comfortable hiking boots, a hat, and sunglasses', 'Done', '', '2023-10-19 07:57:03', 10),
+(9, 'Bike', '2023-06-02', '16:15:00', 'Hometown', 'Sun shirts and shorts', 'Done', '', '2023-10-20 05:13:08', 10);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `announcements`
+--
+
+CREATE TABLE `announcements` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `content` text NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `announcements`
+--
+
+INSERT INTO `announcements` (`id`, `title`, `content`, `created_at`) VALUES
+(1, 'Sample Announcement', 'This is a test announcement.', '2023-10-20 08:50:14'),
+(2, 'Sample Announcement', 'This is a test announcement.', '2023-10-20 08:50:36'),
+(3, 'sdsad', 'sadasdas', '2023-10-20 09:03:21'),
+(4, 'sdsad', 'sadasdas', '2023-10-20 09:03:44'),
+(5, 'gfhfgh', 'ghfhgfh', '2023-10-20 09:56:11');
 
 -- --------------------------------------------------------
 
@@ -96,6 +121,12 @@ ALTER TABLE `activities`
   ADD KEY `fk_activities_users` (`userId`);
 
 --
+-- Indexes for table `announcements`
+--
+ALTER TABLE `announcements`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -109,7 +140,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `activities`
 --
 ALTER TABLE `activities`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+
+--
+-- AUTO_INCREMENT for table `announcements`
+--
+ALTER TABLE `announcements`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `users`

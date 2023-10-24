@@ -20,7 +20,6 @@ function closeConnection($conn) {
 
 $conn = getConnection();
 
-// Check if the connection is successful
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
@@ -37,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($conn->query($sql) === true) {
             header("Location: create_announcement.php");
-            exit(); // Add an exit to stop further execution
+            exit(); /
         } else {
             echo "Error: " . $conn->error;
         }
