@@ -38,7 +38,7 @@ if (isset($_SESSION['userId'])) {
     }
 } else {
 
-    header('Location: ../main.html');
+    header('Location: addacitivity.php');
     exit;
 }
 mysqli_close($conn);
