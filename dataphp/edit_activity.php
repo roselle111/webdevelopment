@@ -120,7 +120,8 @@
 
     <script>
         function editActivity(activityId, title, date, time, location, ootd, status, remarks, created_at) {
-            // Populate the edit form with activity details
+            
+            // edit form with activity details
             document.getElementById("editActivityId").value = activityId;
             document.getElementById("editActivityTitle").value = title;
             document.getElementById("editActivityDate").value = date;

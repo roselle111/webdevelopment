@@ -141,11 +141,10 @@
 
     <div class="content">
         <h1>Welcome to User Page</h1>
-        <!-- Announcements section -->
         <div class="announcements">
             <h2><center>Announcements</center></h2>
             <?php
-            // Connect to the database (you can use your dbutil.php functions)
+            // Connect to the database (use your dbutil.php functions)
             $connection = new mysqli('localhost', 'root', '', 'website');
 
             if ($connection->connect_error) {
@@ -169,7 +168,6 @@
                 echo "No announcements found.";
             }
 
-            // Close the database connection
             $connection->close();
             ?>
         </div>

@@ -16,7 +16,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Update the activity in the database
     $conn = getConnection();
 
-    // Example: Replace placeholders with actual column names
     $sql = "UPDATE activities SET title = ?, date = ?, time = ?, location = ?, ootd = ?, status = ?, remarks = ? WHERE id = ?";
 
     $stmt = mysqli_prepare($conn, $sql);
@@ -35,8 +34,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     mysqli_stmt_close($stmt);
     closeConnection($conn);
 
-    // Redirect back to the activity list page after editing
-    // echo $editActivityId;
     header("Location:edit_activity.php");
     exit();
 }
